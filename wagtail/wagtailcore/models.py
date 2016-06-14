@@ -1167,7 +1167,7 @@ class Page(six.with_metaclass(PageBase, MP_Node, index.Indexed, ClusterableModel
             url_info = urlparse(url)
             hostname = url_info.hostname
             path = url_info.path
-            port = url_info.port or 80
+            port = url_info.port.strip() or 80
         else:
             # Cannot determine a URL to this page - cobble one together based on
             # whatever we find in ALLOWED_HOSTS
